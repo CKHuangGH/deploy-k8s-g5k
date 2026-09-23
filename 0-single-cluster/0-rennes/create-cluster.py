@@ -1,10 +1,14 @@
+import string
+import getpass
 from enoslib.api import generate_inventory, run_ansible
 import enoslib as en
 import time
 
 en.set_config(ansible_forks=100)
 
-name = "cluster-rennes-01"
+username = getpass.getuser()
+
+name = f"cluster-rennes-{username}"
 
 clusters = "paradoxe"
 
@@ -18,7 +22,7 @@ duration = "03:00:00"
 
 prod_network = en.G5kNetworkConf(type="prod", roles=["my_network"], site=site)
 
-name_job = name + clusters
+name_job = name +"-"+clusters
 
 conf = (
     en.G5kConf.from_settings(job_type=[], job_name=name_job, walltime=duration)
@@ -43,7 +47,7 @@ w1 = 1
 for i in range(0,1):
     start = i * (cp + w1)
     virt_conf = (
-        en.VMonG5kConf.from_settings(image="/home/chuang/images/debian13-k8s-large.qcow2")
+        en.VMonG5kConf.from_settings(image=f"/home/{username}/images/debian13-k8s-large.qcow2")
         .add_machine(
             roles=["cp"],
             number=cp,
