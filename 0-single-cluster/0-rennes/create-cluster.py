@@ -81,7 +81,7 @@ for i in range(0,1):
 
     time.sleep(45)
 
-    run_ansible(["afterbuild.yml"], inventory_path=inventory_file)
+    run_ansible(["k8s.yml"], inventory_path=inventory_file)
 
 with open("cp_node_list", "a") as f:
     for ip in cp_nodes:
