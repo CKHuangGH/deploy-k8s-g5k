@@ -6,7 +6,7 @@ import tomllib
 
 username = getpass.getuser()
 en.set_config(ansible_forks=100)
-with open("config.toml", "rb") as f:
+with open("00-config.toml", "rb") as f:
     config = tomllib.load(f)
 
 cp_nodes = []
