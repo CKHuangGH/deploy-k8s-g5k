@@ -74,7 +74,6 @@
       shell: |
         helm repo add cilium https://helm.cilium.io/ || true
         helm repo update
-
         helm install cilium cilium/cilium \
           --version 1.20.2 \
           --namespace kube-system \
@@ -89,15 +88,5 @@
           --set operator.tolerations[2].key=node.kubernetes.io/unreachable \
           --set operator.tolerations[2].operator=Exists \
           --set operator.tolerations[2].effect=NoExecute
-      environment:
-        KUBECONFIG: /etc/kubernetes/admin.conf
-
-- hosts: all[0]
-  become: yes
-  tasks:
-    - name: Install Local Path Provisioner
-      shell: >
-        kubectl apply -f
-        https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.37/deploy/local-path-storage.yaml
       environment:
         KUBECONFIG: /etc/kubernetes/admin.conf
