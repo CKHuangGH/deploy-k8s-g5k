@@ -1,0 +1,23 @@
+[g5k]
+site = "rennes"
+cluster = "paradoxe"
+duration = "03:00:00"
+number_servers = 1
+suffix = "00"
+
+[vm]
+image = "/home/chuang/images/debian13-k8s-large.qcow2"
+
+[vm.control_plane]
+cpu = 8
+memory = 16384
+
+[vm.worker]
+number = 1
+cpu = 8
+memory = 16384
+
+[deployment]
+number_k8s = 1
+wait_before_ansible = 45
+ansible_playbook = "k8s.yml"
