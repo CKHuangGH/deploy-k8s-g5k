@@ -19,4 +19,4 @@ done
 
 echo "Kubernetes cluster is ready......"
 
-. ./01-prepare.sh
+. ./02-prepare.sh
