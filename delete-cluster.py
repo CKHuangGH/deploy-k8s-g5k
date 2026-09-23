@@ -3,6 +3,7 @@ from enoslib.api import generate_inventory, run_ansible
 import enoslib as en
 import time
 import tomllib
+import sys
 
 username = getpass.getuser()
 en.set_config(ansible_forks=100)
@@ -16,7 +17,7 @@ cluster = config["g5k"]["cluster"]
 site = config["g5k"]["site"]
 duration = config["g5k"]["duration"]
 number_servers = config["g5k"]["number_servers"]
-suffix = config["g5k"]["suffix"]
+suffix = sys.argv[1]
 
 job_name = f"{site}-{cluster}-{username}-{suffix}"
 
