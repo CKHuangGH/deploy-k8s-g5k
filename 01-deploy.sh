@@ -11,8 +11,8 @@ for ((i=0; i<number_clusters; i++)); do
     echo "Starting cluster ${suffix}......"
 
     python3 create-cluster.py "$suffix" &
-
-    sleep 5
+    echo "Wait for 8 Secs"
+    sleep 8
 done
 
 wait
