@@ -3,7 +3,6 @@ site = "rennes"
 cluster = "paradoxe"
 duration = "03:00:00"
 number_servers = 1
-suffix = "00"
 
 [vm]
 image = "/home/chuang/images/debian13-k8s-large.qcow2"
